@@ -8,11 +8,11 @@ import {MatIconRegistry} from '@angular/material';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'lemon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/lemon.svg'
-      )
-    );
-  }
+  // constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  //   iconRegistry.addSvgIcon(
+  //     'lemon',
+  //     sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/lemon.svg'
+  //     )
+  //   );
+  // }
 }
