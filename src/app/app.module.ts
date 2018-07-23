@@ -5,10 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './share/material/material.module';
-import {ManagerModule} from './manager/manager.module';
-import {InventoryModule} from './inventory/inventory.module';
-import {PosModule} from './pos/pos.module';
-import {UserModule} from './user/user.module';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -24,10 +20,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ManagerModule,
-    InventoryModule,
-    PosModule,
-    UserModule,
     FlexLayoutModule
   ],
   providers: [],
