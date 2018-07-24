@@ -32,6 +32,7 @@ export class AuthService extends CacheService {
     this.logout();
     const loginResponse = this.authProvider(email, password).pipe(
       map(value => {
+        this.setToken(value.accessToken);
         return decode(value.accessToken) as IAuthStatus;
       }),
       catchError(transformError)
@@ -49,6 +50,7 @@ export class AuthService extends CacheService {
   }
 
   logout() {
+    this.clearToken();
     this.authStatus.next(defaultAuthStatus);
   }
 
@@ -88,6 +90,22 @@ export class AuthService extends CacheService {
       }),
     } as IServerAuthResponse;
     return of(authResponse);
+  }
+
+  private setToken(jwt: string) {
+    this.setItem('jwt', jwt);
+  }
+
+  private getDecodedToken(): IAuthStatus {
+    return decode(this.getItem('jwt'));
+  }
+
+  getToken(): string {
+    return this.getItem('jwt') || '';
+  }
+
+  private clearToken() {
+    this.removeItem('jwt');
   }
 }
 
