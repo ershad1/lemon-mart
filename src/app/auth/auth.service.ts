@@ -7,11 +7,12 @@ import {catchError, map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {Role} from './role.enum';
 import {transformError} from '../common/common';
+import {CacheService} from './cache.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService extends CacheService {
   private readonly authProvider: (
     email: string,
     password: string
@@ -19,6 +20,8 @@ export class AuthService {
   authStatus = new BehaviorSubject<IAuthStatus>(defaultAuthStatus);
 
   constructor(private httpClient: HttpClient) {
+    super();
+    this.authStatus.subscribe(authStatus => this.setItem('authStatus', authStatus));
 // Fake login function to simulate roles
     this.authProvider = this.fakeAuthProvider;
 // Example of a real login call to server-side
