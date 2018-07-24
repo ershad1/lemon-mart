@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth/auth.service';
+import {ObservableMedia} from '@angular/flex-layout';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
 
   displayAccountIcons = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              public media: ObservableMedia) {
   }
 
   ngOnInit() {
